@@ -15,13 +15,15 @@ Frameflow 是一个本地 Web 工作室，用于通过节点图组合图像生�
 
 ## 🖼️ 预览
 
+**工作室** — 使用节点组合图像工作流，并在本地查看结果。
+
 ![Frameflow 工作室](docs/assets/studio-overview.png)
 
-![Motion atlas 契约](docs/assets/motion-atlas-contract.png)
+**动效输出** — 验证横向 atlas，精确切分单元格，再编码为 GIF/APNG。
 
 ![Synthetic motion fixture](docs/assets/motion-demo.gif)
 
-完整步骤请查看 [Demo 指南](docs/DEMO.md)。
+技术规范请查看 [motion atlas 卡片](docs/assets/motion-atlas-contract.png)，完整步骤请查看 [Demo 指南](docs/DEMO.md)。
 
 ## 🚀 运行
 

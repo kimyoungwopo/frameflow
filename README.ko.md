@@ -15,13 +15,15 @@
 
 ## 🖼️ 미리보기
 
+**스튜디오** — 노드로 이미지 workflow를 구성하고 결과를 로컬에서 확인해.
+
 ![Frameflow 스튜디오](docs/assets/studio-overview.png)
 
-![Motion atlas 계약](docs/assets/motion-atlas-contract.png)
+**모션 결과** — 가로 atlas를 검증하고 셀을 정확히 나눈 뒤 GIF/APNG로 인코딩해.
 
 ![Synthetic motion fixture](docs/assets/motion-demo.gif)
 
-전체 절차는 [Demo 가이드](docs/DEMO.md)를 확인해.
+기술 규격은 [motion atlas 카드](docs/assets/motion-atlas-contract.png), 전체 절차는 [Demo 가이드](docs/DEMO.md)를 확인해.
 
 ## 🚀 실행
 

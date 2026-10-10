@@ -15,13 +15,15 @@ Frameflowは、画像生成・編集ワークフローをノードグラフで�
 
 ## 🖼️ プレビュー
 
+**スタジオ** — ノードで画像ワークフローを組み、結果をローカルで確認できます。
+
 ![Frameflowスタジオ](docs/assets/studio-overview.png)
 
-![Motion atlas契約](docs/assets/motion-atlas-contract.png)
+**モーション出力** — 横長atlasを検証し、セルを正確に分割してGIF/APNGにエンコードします。
 
 ![Synthetic motion fixture](docs/assets/motion-demo.gif)
 
-詳しくは [Demoガイド](docs/DEMO.md) を確認してください。
+技術仕様は [motion atlasカード](docs/assets/motion-atlas-contract.png)、手順は [Demoガイド](docs/DEMO.md) を確認してください。
 
 ## 🚀 実行
 

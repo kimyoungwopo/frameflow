@@ -50,13 +50,15 @@ Natural language / manual graph
 
 ## 🖼️ Preview
 
+**The studio** — compose an image workflow with nodes and inspect the result locally.
+
 ![Frameflow studio overview](docs/assets/studio-overview.png)
 
-![Motion atlas contract](docs/assets/motion-atlas-contract.png)
+**The motion output** — validate a wide atlas, split exact cells, and encode a GIF/APNG.
 
 ![Synthetic motion fixture](docs/assets/motion-demo.gif)
 
-These are public-safe local UI and synthetic fixture assets. They do not contain account state or provider output. See the full [offline demo guide](docs/DEMO.md).
+For the technical contract, see the [motion atlas card](docs/assets/motion-atlas-contract.png). These are public-safe local UI and synthetic fixture assets; they do not contain account state or provider output. See the full [offline demo guide](docs/DEMO.md).
 
 ## 🚀 Quick start
 
