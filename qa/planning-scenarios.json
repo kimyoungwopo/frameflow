@@ -1,0 +1,280 @@
+[
+  {
+    "prompt": "고양이 사진을 만들어줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "prompt",
+      "generate",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "generate",
+        "inputs": [],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "흰 배경의 제품 사진을 새로 만들어줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "prompt",
+      "generate",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "generate",
+        "inputs": [],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "제품 사진을 광고 이미지로 만들어줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "image",
+      "prompt",
+      "edit",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-1"
+        ],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "사진 배경을 제거하고 해상도를 높여줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "image",
+      "command",
+      "edit",
+      "upscale",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-1"
+        ],
+        "transparent": true
+      },
+      {
+        "kind": "edit",
+        "inputs": [
+          "result-1"
+        ],
+        "transparent": true
+      }
+    ]
+  },
+  {
+    "prompt": "두 이미지를 합쳐줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "image",
+      "image",
+      "blend",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-1",
+          "input-2"
+        ],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "3장의 사진 배경을 각각 제거해줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "image",
+      "image",
+      "image",
+      "command",
+      "command",
+      "command",
+      "edit",
+      "edit",
+      "edit",
+      "preview",
+      "preview",
+      "preview"
+    ],
+    "previews": 3,
+    "stages": [
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-1"
+        ],
+        "transparent": true
+      },
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-5"
+        ],
+        "transparent": true
+      },
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-9"
+        ],
+        "transparent": true
+      }
+    ]
+  },
+  {
+    "prompt": "고양이 사진을 만들고 3번 반복 개선해줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "prompt",
+      "generate",
+      "repeat",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "generate",
+        "inputs": [],
+        "transparent": false
+      },
+      {
+        "kind": "edit",
+        "inputs": [
+          "result-1"
+        ],
+        "transparent": false
+      },
+      {
+        "kind": "edit",
+        "inputs": [
+          "result-2"
+        ],
+        "transparent": false
+      },
+      {
+        "kind": "edit",
+        "inputs": [
+          "result-3"
+        ],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "원본 이미지를 참고 이미지 스타일로 바꿔줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "image",
+      "image",
+      "edit",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-1",
+          "input-2"
+        ],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "배경은 제거하지 말고 사진의 선명도만 높여줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "image",
+      "upscale",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "edit",
+        "inputs": [
+          "input-1"
+        ],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "고양이 사진을 만들고 해상도를 높여줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "prompt",
+      "generate",
+      "upscale",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "generate",
+        "inputs": [],
+        "transparent": false
+      },
+      {
+        "kind": "edit",
+        "inputs": [
+          "result-1"
+        ],
+        "transparent": false
+      }
+    ]
+  },
+  {
+    "prompt": "3D 고양이를 그려줘",
+    "status": 200,
+    "mode": "local",
+    "order": [
+      "prompt",
+      "command",
+      "generate",
+      "preview"
+    ],
+    "previews": 1,
+    "stages": [
+      {
+        "kind": "generate",
+        "inputs": [],
+        "transparent": false
+      }
+    ]
+  }
+]

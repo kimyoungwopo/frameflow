@@ -1,0 +1,19 @@
+{
+  "name": "frameflow",
+  "version": "0.1.0",
+  "private": false,
+  "scripts": {
+    "bridge": "node bridge/local.js",
+    "setup": "npm install --prefix web",
+    "dev": "node server.js --dev",
+    "build": "npm run build --prefix web",
+    "start": "node server.js",
+    "test": "node --test tests/*.test.cjs bridge/tests/*.test.js",
+    "typecheck": "npm run typecheck --prefix web",
+    "agent:check": "node scripts/agent-check.cjs",
+    "macos:install": "node scripts/macos-install-launchd.cjs",
+    "macos:uninstall": "node scripts/macos-uninstall-launchd.cjs",
+    "provider:e2e-check": "node scripts/provider-e2e-check.cjs",
+    "public:check": "node scripts/public-release-check.cjs"
+  }
+}

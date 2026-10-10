@@ -1,0 +1,10 @@
+{
+  "format": "gpt-node-studio", "version": 1, "projectName": "먼 노드 연결선 검증",
+  "request": "캔버스 연결선 표시 검증", "imageUrl": "", "imageName": "", "history": [], "groups": [],
+  "nodes": [
+    { "id": 1, "type": "prompt", "x": -700, "y": -400, "prompt": "선 표시를 확인하기 위한 작업 지시", "taskTitle": "왼쪽 위 입력 지시", "taskDetail": "음수 좌표의 연결 시작점" },
+    { "id": 2, "type": "generate", "x": 2500, "y": 1700, "taskTitle": "멀리 떨어진 처리 노드", "taskDetail": "기존 SVG의 가로와 세로 경계 밖" },
+    { "id": 3, "type": "preview", "x": 4000, "y": 2600, "taskTitle": "오른쪽 아래 결과", "taskDetail": "처리 노드와 결과 사이의 선이 보여야 합니다" }
+  ],
+  "edges": [{ "id": 11, "source": 1, "target": 2 }, { "id": 12, "source": 2, "target": 3 }]
+}

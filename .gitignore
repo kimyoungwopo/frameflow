@@ -1,0 +1,35 @@
+# Private/local state
+.frameflow-server.env
+.env
+.env.*
+!.env.example
+
+# Local/build artifacts
+node_modules/
+.next/
+out/
+.DS_Store
+
+# Private captures, exports, and generated media
+qa/**/*.png
+qa/**/*.jpg
+qa/**/*.jpeg
+qa/**/*.webp
+qa/**/*.zip
+promo/**/*.png
+promo/**/*.jpg
+promo/**/*.jpeg
+promo/**/*.webp
+promo/**/*.mp4
+promo/**/*.mov
+promo-motion/build/
+promo-motion/out/
+promo-motion/public/real-ui/
+promo-motion/public/live-*/
+*.app/
+GPT-Image-Studio-macOS.zip
+pc-bridge-server.png
+promo-motion/
+web/public/brand/frameflow-candidates/
+web/public/examples/
+web/tsconfig.tsbuildinfo

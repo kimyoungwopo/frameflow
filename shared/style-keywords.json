@@ -1,0 +1,23 @@
+{
+  "id": "frameflow-style-keywords-v1",
+  "keywords": [
+    { "key": "wormview", "aliases": ["worm's-eye view", "wormseye", "웜즈아이", "극단적 로우앵글"], "category": "camera", "prompt": "extreme worm's-eye view from very low ground level, camera looking sharply upward, keep the subject readable and anatomically stable" },
+    { "key": "ghosttrail", "aliases": ["ghost trail", "afterimage trail", "잔상", "유령 잔상"], "category": "motion", "prompt": "controlled ghost-trail afterimages behind the moving subject, 2-3 distinct translucent silhouettes, no uncontrolled blur" },
+    { "key": "directflash", "aliases": ["direct flash", "직광 플래시", "정면 플래시", "디카 플래시"], "category": "lighting", "prompt": "hard direct frontal flash, crisp foreground exposure, deep surrounding shadows, compact on-camera flash look" },
+    { "key": "flashfreeze", "aliases": ["flash freeze", "순간광 정지", "플래시 정지"], "category": "lighting", "prompt": "short-duration flash freezing the subject sharply at the decisive moment, preserve clear edges and natural proportions" },
+    { "key": "halation", "aliases": ["film halation", "필름 할레이션", "빛 번짐"], "category": "texture", "prompt": "subtle analog film halation around bright highlights, restrained and localized, preserve facial and product detail" },
+    { "key": "filmgrain", "aliases": ["film grain", "필름 그레인", "아날로그 입자"], "category": "texture", "prompt": "fine analog film grain with coherent luminance texture, avoid digital noise and avoid hiding important details" },
+    { "key": "bloom", "aliases": ["soft bloom", "빛 확산", "하이라이트 글로우"], "category": "lighting", "prompt": "soft restrained highlight bloom around bright light sources, keep the subject edges and text-free areas clean" },
+    { "key": "chromaticshift", "aliases": ["chromatic aberration", "색수차", "RGB 분리"], "category": "texture", "prompt": "subtle controlled RGB edge separation at the outer frame, keep the main subject aligned and legible" },
+    { "key": "dutchangle", "aliases": ["dutch angle", "tilted camera", "기울어진 카메라"], "category": "camera", "prompt": "intentional slight camera roll with a stable subject, preserve composition and avoid accidental perspective distortion" },
+    { "key": "topdown", "aliases": ["top-down", "top view", "탑뷰", "수직 탑뷰"], "category": "camera", "prompt": "near-90-degree top-down camera view, clear layout and readable subject silhouette" },
+    { "key": "overheadshadow", "aliases": ["overhead shadow", "머리 위 그림자", "탑라이트 그림자"], "category": "lighting", "prompt": "strong overhead light creating a controlled shadow directly beneath and around the subject" },
+    { "key": "neonnoir", "aliases": ["neon noir", "네온 누아르", "네온 야간"], "category": "mood", "prompt": "dark cinematic night atmosphere with restrained cyan and magenta neon accents, preserve subject identity" },
+    { "key": "candidfreeze", "aliases": ["candid freeze", "스냅 정지", "결정적 순간"], "category": "camera", "prompt": "unposed candid decisive moment captured with a crisp frozen gesture and natural body language" },
+    { "key": "softfocus", "aliases": ["soft focus", "소프트 포커스", "부드러운 초점"], "category": "texture", "prompt": "gentle optical soft focus with the main subject still readable, no artificial smearing or loss of identity" },
+    { "key": "pixelcrisp", "aliases": ["pixel crisp", "하드 픽셀", "픽셀 선명도"], "category": "pixel", "prompt": "hard pixel edges, nearest-neighbor appearance, fixed palette, no blur, no interpolation and no anti-aliasing" },
+    { "key": "smearframe", "aliases": ["smear frame", "스미어 프레임", "동작 늘임 프레임"], "category": "pixel", "prompt": "one intentional pixel-art smear frame that stretches the moving limb or silhouette while preserving the character palette and anchor" },
+    { "key": "impactframe", "aliases": ["impact frame", "임팩트 프레임", "충격 프레임"], "category": "pixel", "prompt": "one readable impact pose with a strong silhouette and limited pixel accent marks, no random objects or text" },
+    { "key": "loopseamless", "aliases": ["seamless loop", "clean loop", "자연스러운 루프", "무한 반복"], "category": "motion", "prompt": "seamless looping motion whose final pose connects cleanly back to the first pose" }
+  ]
+}

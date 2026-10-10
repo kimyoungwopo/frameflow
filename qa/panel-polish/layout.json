@@ -1,0 +1,110 @@
+[
+  {
+    "target": 1280,
+    "tab": "create",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 1280,
+    "shortButtons": [],
+    "width": 1280
+  },
+  {
+    "target": 1280,
+    "tab": "configure",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 1280,
+    "shortButtons": [],
+    "width": 1280
+  },
+  {
+    "target": 1280,
+    "tab": "library",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 1280,
+    "shortButtons": [],
+    "width": 1280
+  },
+  {
+    "target": 768,
+    "tab": "create",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 768,
+    "shortButtons": [],
+    "width": 768
+  },
+  {
+    "target": 768,
+    "tab": "configure",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 768,
+    "shortButtons": [],
+    "width": 768
+  },
+  {
+    "target": 768,
+    "tab": "library",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 768,
+    "shortButtons": [],
+    "width": 768
+  },
+  {
+    "target": 390,
+    "tab": "create",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 390,
+    "shortButtons": [],
+    "width": 390
+  },
+  {
+    "target": 390,
+    "tab": "configure",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 390,
+    "shortButtons": [],
+    "width": 390
+  },
+  {
+    "target": 390,
+    "tab": "library",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 390,
+    "shortButtons": [],
+    "width": 390
+  },
+  {
+    "target": 320,
+    "tab": "create",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 320,
+    "shortButtons": [],
+    "width": 320
+  },
+  {
+    "target": 320,
+    "tab": "configure",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 320,
+    "shortButtons": [],
+    "width": 320
+  },
+  {
+    "target": 320,
+    "tab": "library",
+    "nativeSelects": 0,
+    "outsidePanel": [],
+    "scrollWidth": 320,
+    "shortButtons": [],
+    "width": 320
+  }
+]

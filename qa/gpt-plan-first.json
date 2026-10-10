@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "type": "prompt",
+      "prompt": "흰 배경 위에 빨간 운동화를 새로 생성하세요. 이미지 어디에도 글자, 숫자, 로고, 워터마크를 넣지 마세요.",
+      "x": 70,
+      "y": 140
+    },
+    {
+      "id": 2,
+      "type": "generate",
+      "x": 360,
+      "y": 140
+    },
+    {
+      "id": 3,
+      "type": "preview",
+      "x": 650,
+      "y": 140
+    }
+  ],
+  "edges": [
+    {
+      "id": 1,
+      "source": 1,
+      "target": 2
+    },
+    {
+      "id": 2,
+      "source": 2,
+      "target": 3
+    }
+  ],
+  "review": {
+    "summary": "흰 배경 위에 빨간 운동화를 새로 생성하고 최종 이미지를 미리보기로 표시합니다. 이미지에는 글자를 넣지 않습니다.",
+    "warnings": [],
+    "decisions": [
+      "PROMPT",
+      "GENERATE",
+      "PREVIEW"
+    ]
+  },
+  "mode": "gpt",
+  "model": "gpt-6.1-sol"
+}

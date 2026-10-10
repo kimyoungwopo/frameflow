@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPT Image Studio MVP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">✦</span><div><strong>GPT Image Studio</strong><small>AI 이미지 작업실</small></div></div>
+    <div class="top-actions"><span id="saveState" class="save-state">저장됨</span><span id="localStatus" class="local-status">웹 서버 연결 중 · 로그인 실행기 없음</span><button class="ghost" id="localStatusBtn">로컬 상태</button><button class="ghost login-link" id="loginHelpBtn" type="button">로그인 실행기 안내</button><button class="ghost" id="saveBtn">저장</button><button class="primary" id="runBtn">▶ 실행</button></div>
+  </header>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="side-heading">노드 추가</div>
+      <button class="node-tool" data-add="prompt"><span class="tool-icon purple">✎</span><span><b>프롬프트</b><small>기본값 + 내 지시 추가</small></span></button>
+      <button class="node-tool" data-add="generate"><span class="tool-icon teal">✦</span><span><b>이미지 생성</b><small>한 장 먼저 만들기</small></span></button>
+      <button class="node-tool" data-add="command"><span class="tool-icon purple">⌘</span><span><b>명령어 선택</b><small>PDF 명령어 조합</small></span></button>
+      <button class="node-tool" data-add="image"><span class="tool-icon purple">▧</span><span><b>이미지 입력</b><small>사진을 작업에 넣기</small></span></button>
+      <button class="node-tool" data-add="edit"><span class="tool-icon teal">✎</span><span><b>GPT 이미지 편집</b><small>부분·스타일 변경</small></span></button>
+      <button class="node-tool" data-add="blend"><span class="tool-icon orange">◈</span><span><b>이미지 합치기</b><small>결과물을 하나로</small></span></button>
+      <button class="node-tool" data-add="upscale"><span class="tool-icon blue">↗</span><span><b>업스케일</b><small>크기와 선명도 개선</small></span></button>
+      <button class="node-tool" data-add="preview"><span class="tool-icon pink">▣</span><span><b>미리보기</b><small>완성 결과 확인</small></span></button>
+      <div class="node-guide" id="nodeGuide"><b>노드 종류 설명</b><p>노드를 선택하면 역할을 확인할 수 있어요.</p></div>
+      <div class="side-divider"></div>
+      <div class="side-heading">저장한 작업</div>
+      <button class="saved-work" data-load="local">◈ 마지막 저장본 불러오기</button>
+      <button class="saved-work" data-load="product">◈ 제품 광고 이미지</button>
+      <button class="saved-work" data-load="character">◈ 캐릭터 파생 시안</button>
+      <div class="side-tip"><b>처음이라면</b><br/>오른쪽에 하고 싶은 일을 적어보세요. AI가 작업 순서를 만들어줍니다.</div>
+    </aside>
+    <section class="workspace">
+      <div class="workspace-head"><div><span class="eyebrow">MY WORKFLOW</span><h1>제품 광고 이미지 만들기</h1></div><span class="badge">빈 작업실</span></div>
+      <div id="canvas" class="canvas" aria-label="워크플로우 캔버스"><div class="canvas-toolbar"><div class="canvas-tools"><button class="canvas-tool active" id="selectTool" title="선택">↖</button><button class="canvas-tool" id="panTool" title="손 이동">✥</button><span class="toolbar-divider"></span><button class="canvas-tool" id="undoBtn" title="되돌리기">↶</button><button class="canvas-tool" id="redoBtn" title="다시 실행">↷</button><button class="canvas-tool" id="disconnectBtn" title="선택한 연결 해제" disabled>⤫</button></div><div class="canvas-tools"><button class="canvas-tool" id="zoomOut">−</button><span class="zoom-value">100%</span><button class="canvas-tool" id="zoomIn">＋</button><button class="canvas-tool" id="fitBtn" title="화면 맞춤">⌗</button></div></div><div class="minimap"><span class="mini-dot dot-a"></span><span class="mini-dot dot-b"></span><span class="mini-dot dot-c"></span><span class="mini-line line-a"></span><span class="mini-line line-b"></span></div></div>
+      <div class="canvas-footer"><span>노드를 클릭하면 설정을 바꿀 수 있어요</span><span id="zoomLabel">100%</span></div>
+    </section>
+    <aside class="assistant">
+      <div class="assistant-head"><div><span class="sparkle">✦</span><strong>AI Workflow</strong><small>말로 작업 순서를 만들어보세요</small></div><span class="online-dot"></span></div>
+      <label class="field-label" for="request">무엇을 만들까요?</label>
+      <textarea id="request" placeholder="예: 제품 사진을 고급 광고 이미지로 만들고, 배경은 검은 대리석으로 바꾼 뒤 2배 확대해줘."></textarea>
+      <button id="planBtn" class="plan-btn">✦ 작업 순서 만들기</button>
+      <label class="field-label" for="nodeRequest">자연어로 노드 추가</label>
+      <textarea id="nodeRequest" class="node-request" rows="2" placeholder="예: 배경을 흐리게 하는 편집 노드 추가"></textarea>
+      <button id="addNodeFromText" class="secondary node-request-btn">＋ 노드 만들기</button>
+      <div class="assistant-result" id="assistantResult"><span class="result-icon">＋</span><div><b>아직 작업이 없어요</b><p>왼쪽에서 노드를 추가하거나 작업 내용을 입력해보세요.</p></div></div>
+      <div class="assistant-actions"><button id="resetBtn" class="secondary">처음부터</button><button id="applyBtn" class="teal-btn">이대로 실행</button></div>
+      <div class="run-log" id="runLog"><div class="log-title">실행 상태</div><div class="execution-location" id="executionLocation">실행 위치: 아직 실행하지 않음</div><div class="log-row"><span class="status-dot ready"></span><span>대기 중이에요</span></div></div>
+      <div class="upload-box" id="uploadBox"><input type="file" id="fileInput" accept="image/*" hidden /><span>＋</span><b>이미지 추가</b><small>여기에 사진을 끌어오거나 눌러 선택</small></div>
+    </aside>
+  </main>
+  <script src="commands.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

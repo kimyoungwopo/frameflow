@@ -1,0 +1,906 @@
+{
+  "id": "frameflow-commands-v1",
+  "recipes": [
+    { "id": "street-shadow", "label": "흑백 스트리트 · 긴 그림자", "codes": ["HIGHANGLE", "BLACKWHITE", "HARDLIGHT", "SIDELIGHT", "CANDID", "DSLR"], "description": "기존 시점·색감·조명·스냅 명령을 조합. 거친 포장도로, 긴 대각선 그림자, 강한 명암과 넓은 여백은 별도 프롬프트로 설명. 흑백 요청에만 사용." },
+    { "id": "street-editorial", "label": "하이엔드 스트릿 화보", "codes": ["FASHIONCAMPAIGN", "EDITORIAL", "FULLBODY", "LOWANGLE", "DSLR", "NATURALLIGHT"], "description": "도시에서 촬영한 패션 캠페인과 전신 화보. 골목·횡단보도·건축 배경, 오버핏·데님 착장, 포즈와 색감은 요청에 맞춰 별도 프롬프트에 작성. 기존 사진 편집은 요청하지 않은 착장 변경을 하지 않음." },
+    { "id": "street-newtro", "label": "뉴트로 스트릿 무드", "codes": ["EDITORIAL", "FULLBODY", "WIDEANGLE", "VINTAGE", "GOLDENHOUR", "NATURAL"], "description": "레트로 필름 질감과 자연스러운 도시 패션 사진. 오래된 외벽, 데님 질감, 은은한 색감과 느슨한 포즈는 별도 프롬프트에 작성. 골든아워는 요청한 시간대와 일치할 때 사용." },
+    { "id": "street-candid", "label": "데일리 룩북 · 스냅", "codes": ["CANDID", "IPHONE", "FULLBODY", "NATURAL", "NATURALLIGHT", "LIFESTYLE"], "description": "길을 걷다가 자연스럽게 포착한 전신 데일리 스냅. 성수·한남 느낌의 골목, 볼캡·와이드 팬츠·레이어드 코디는 사용자가 원하는 경우 별도 프롬프트에 작성. 색감과 기존 피사체 보존 조건을 유지." }
+  ],
+  "categories": [
+    {
+      "id": "quality",
+      "label": "화질·실사·사진 퀄리티",
+      "commands": [
+        {
+          "code": "HDREAL",
+          "label": "고화질 실사",
+          "use": "저화질 복원·제품"
+        },
+        {
+          "code": "ULTRAREALISTIC",
+          "label": "극사실적",
+          "use": "인물·제품·건축"
+        },
+        {
+          "code": "4K",
+          "label": "4K 디테일",
+          "use": "범용"
+        },
+        {
+          "code": "8K",
+          "label": "8K 디테일",
+          "use": "제품·풍경"
+        },
+        {
+          "code": "PROSHOT",
+          "label": "전문 사진 촬영",
+          "use": "제품·인물"
+        },
+        {
+          "code": "DSLR",
+          "label": "DSLR 촬영",
+          "use": "인물·풍경"
+        },
+        {
+          "code": "IPHONE",
+          "label": "스마트폰 촬영",
+          "use": "SNS·일상"
+        },
+        {
+          "code": "NATURAL",
+          "label": "자연스러운 표현",
+          "use": "인물·음식"
+        },
+        {
+          "code": "CINEMATIC",
+          "label": "시네마틱",
+          "use": "인물·자동차"
+        },
+        {
+          "code": "MOODY",
+          "label": "어두운 분위기",
+          "use": "패션·인물"
+        },
+        {
+          "code": "GOLDENHOUR",
+          "label": "골든아워",
+          "use": "야외"
+        },
+        {
+          "code": "BOKEH",
+          "label": "얕은 심도·배경 흐림",
+          "use": "인물·제품"
+        },
+        {
+          "code": "VINTAGE",
+          "label": "빈티지 필름",
+          "use": "감성 사진"
+        },
+        {
+          "code": "BLACKWHITE",
+          "label": "흑백 사진",
+          "use": "인물·건축"
+        },
+        {
+          "code": "DREAMY",
+          "label": "몽환적 분위기",
+          "use": "패션·인물"
+        },
+        {
+          "code": "NEON",
+          "label": "네온 조명",
+          "use": "사이버펑크·자동차"
+        },
+        {
+          "code": "FOG",
+          "label": "안개 효과",
+          "use": "풍경·영화적 장면"
+        }
+      ]
+    },
+    {
+      "id": "camera",
+      "label": "카메라·촬영 시점",
+      "commands": [
+        {
+          "code": "DRONEVIEW",
+          "label": "드론 시점",
+          "use": "공중"
+        },
+        {
+          "code": "AERIAL",
+          "label": "항공 촬영",
+          "use": "높은 고도"
+        },
+        {
+          "code": "BIRDSEYE",
+          "label": "조감 시점",
+          "use": "상공"
+        },
+        {
+          "code": "TOPDOWN",
+          "label": "수직 탑뷰",
+          "use": "90° 위"
+        },
+        {
+          "code": "HIGHANGLE",
+          "label": "하이 앵글",
+          "use": "하향"
+        },
+        {
+          "code": "LOWANGLE",
+          "label": "로우 앵글",
+          "use": "상향"
+        },
+        {
+          "code": "WORMSEYE",
+          "label": "웜즈아이",
+          "use": "극단적 로우앵글"
+        },
+        {
+          "code": "SIDEVIEW",
+          "label": "정확한 측면",
+          "use": "90° 측면"
+        },
+        {
+          "code": "FRONTVIEW",
+          "label": "정면",
+          "use": "0°"
+        },
+        {
+          "code": "BACKVIEW",
+          "label": "후면",
+          "use": "180°"
+        },
+        {
+          "code": "THREEQUARTER",
+          "label": "3/4 사선",
+          "use": "약 45°"
+        },
+        {
+          "code": "WIDEANGLE",
+          "label": "광각",
+          "use": "넓은 공간"
+        },
+        {
+          "code": "FISHEYE",
+          "label": "어안렌즈",
+          "use": "초광각"
+        },
+        {
+          "code": "TELEPHOTO",
+          "label": "망원렌즈",
+          "use": "원거리"
+        },
+        {
+          "code": "MACRO",
+          "label": "접사",
+          "use": "초근접"
+        },
+        {
+          "code": "CLOSEUP",
+          "label": "클로즈업",
+          "use": "근접"
+        },
+        {
+          "code": "FULLBODY",
+          "label": "전신 촬영",
+          "use": "전신"
+        },
+        {
+          "code": "PORTRAIT",
+          "label": "인물 중심",
+          "use": "상반신·얼굴"
+        }
+      ]
+    },
+    {
+      "id": "product-view",
+      "label": "360°·제품 뷰",
+      "commands": [
+        {
+          "code": "360VIEW",
+          "label": "360° 뷰",
+          "use": "제품"
+        },
+        {
+          "code": "PRODUCT360",
+          "label": "제품 턴어라운드",
+          "use": "쇼핑몰"
+        },
+        {
+          "code": "TOPVIEW",
+          "label": "제품 상단",
+          "use": "제품 자료"
+        },
+        {
+          "code": "BOTTOMVIEW",
+          "label": "제품 하단",
+          "use": "제품 자료"
+        },
+        {
+          "code": "ORTHOGRAPHIC",
+          "label": "정투상도",
+          "use": "산업디자인"
+        },
+        {
+          "code": "DETAILVIEWS",
+          "label": "세부 영역 확대",
+          "use": "상세페이지"
+        },
+        {
+          "code": "PRODUCTSHOT",
+          "label": "전문 제품 사진",
+          "use": "쇼핑몰"
+        },
+        {
+          "code": "SHOWCASE",
+          "label": "쇼케이스",
+          "use": "광고"
+        },
+        {
+          "code": "HERO",
+          "label": "히어로 제품컷",
+          "use": "키비주얼"
+        }
+      ]
+    },
+    {
+      "id": "structure",
+      "label": "제품 구조·분해도·기술 이미지",
+      "commands": [
+        {
+          "code": "EXPLODEDVIEW",
+          "label": "분해도",
+          "use": "부품 분리"
+        },
+        {
+          "code": "DISASSEMBLY",
+          "label": "분해 상태",
+          "use": "설명서"
+        },
+        {
+          "code": "ASSEMBLY",
+          "label": "조립 구조",
+          "use": "매뉴얼"
+        },
+        {
+          "code": "CUTAWAY",
+          "label": "절개도",
+          "use": "자동차·건축"
+        },
+        {
+          "code": "CROSSSECTION",
+          "label": "단면 구조",
+          "use": "제품·건축"
+        },
+        {
+          "code": "ANATOMY",
+          "label": "내부 구성·구조",
+          "use": "제품·생물"
+        },
+        {
+          "code": "LAYERS",
+          "label": "레이어 분리",
+          "use": "제품"
+        },
+        {
+          "code": "COMPONENTMAP",
+          "label": "구성 요소 맵",
+          "use": "기술 문서"
+        },
+        {
+          "code": "INTERNALVIEW",
+          "label": "내부 구조",
+          "use": "기계"
+        },
+        {
+          "code": "SCHEMATIC",
+          "label": "기술도",
+          "use": "전자·기계"
+        },
+        {
+          "code": "TECHNICALDRAWING",
+          "label": "기술 도면",
+          "use": "설계"
+        },
+        {
+          "code": "BLUEPRINT",
+          "label": "청사진",
+          "use": "제품·건축"
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "label": "제품 디자인 변형",
+      "commands": [
+        {
+          "code": "COLORWAYS",
+          "label": "색상 버전",
+          "use": "컬러 옵션"
+        },
+        {
+          "code": "VARIANTS",
+          "label": "디자인 변형안",
+          "use": "컨셉 비교"
+        },
+        {
+          "code": "MATERIALBOARD",
+          "label": "소재 보드",
+          "use": "소재 비교"
+        },
+        {
+          "code": "MATERIALVARIANTS",
+          "label": "재질 변경",
+          "use": "제품 개발"
+        },
+        {
+          "code": "CONCEPT",
+          "label": "콘셉트 디자인",
+          "use": "초기 아이디어"
+        },
+        {
+          "code": "PROTOTYPE",
+          "label": "프로토타입",
+          "use": "시제품"
+        },
+        {
+          "code": "REDESIGN",
+          "label": "리디자인",
+          "use": "개선안"
+        },
+        {
+          "code": "FUTURISTIC",
+          "label": "미래형 디자인",
+          "use": "제품 컨셉"
+        },
+        {
+          "code": "MINIMAL",
+          "label": "미니멀",
+          "use": "제품·브랜딩"
+        },
+        {
+          "code": "PREMIUM",
+          "label": "프리미엄",
+          "use": "고급 제품"
+        }
+      ]
+    },
+    {
+      "id": "commercial-product",
+      "label": "쇼핑몰·광고 제품",
+      "commands": [
+        {
+          "code": "LIFESTYLE",
+          "label": "라이프스타일",
+          "use": "사용 장면"
+        },
+        {
+          "code": "FASHIONCAMPAIGN",
+          "label": "패션 캠페인",
+          "use": "패션"
+        },
+        {
+          "code": "FABRICMACRO",
+          "label": "원단 접사",
+          "use": "소재 디테일"
+        },
+        {
+          "code": "STUDIO",
+          "label": "스튜디오 촬영",
+          "use": "범용 제품"
+        },
+        {
+          "code": "WHITEBG",
+          "label": "흰색 배경",
+          "use": "쇼핑몰"
+        },
+        {
+          "code": "BLACKBG",
+          "label": "검은 배경",
+          "use": "프리미엄"
+        },
+        {
+          "code": "LUXURY",
+          "label": "명품 광고",
+          "use": "고급 제품"
+        },
+        {
+          "code": "COMMERCIAL",
+          "label": "상업 광고",
+          "use": "캠페인"
+        }
+      ]
+    },
+    {
+      "id": "composite",
+      "label": "배경 변경·합성",
+      "commands": [
+        {
+          "code": "NEWBG",
+          "label": "배경 교체",
+          "use": "새 배경"
+        },
+        {
+          "code": "REMOVEBG",
+          "label": "배경 제거",
+          "use": "누끼"
+        },
+        {
+          "code": "TRANSPARENTBG",
+          "label": "투명 배경",
+          "use": "PNG 스타일"
+        },
+        {
+          "code": "TOGETHER",
+          "label": "대상 함께 배치",
+          "use": "장면 합성"
+        },
+        {
+          "code": "COMPOSITE",
+          "label": "복합 합성",
+          "use": "여러 요소"
+        },
+        {
+          "code": "REPLACE",
+          "label": "요소 교체",
+          "use": "부분 수정"
+        },
+        {
+          "code": "REMOVE",
+          "label": "요소 제거",
+          "use": "클린업"
+        },
+        {
+          "code": "CLEANUP",
+          "label": "배경 정리",
+          "use": "불필요 요소 제거"
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "label": "인물",
+      "commands": [
+        {
+          "code": "FACELOCK",
+          "label": "얼굴 보존",
+          "use": "얼굴 특징 유지"
+        },
+        {
+          "code": "HEADSHOT",
+          "label": "헤드샷",
+          "use": "프로필·증명사진"
+        },
+        {
+          "code": "EDITORIAL",
+          "label": "에디토리얼",
+          "use": "패션 화보"
+        },
+        {
+          "code": "BEAUTY",
+          "label": "뷰티 촬영",
+          "use": "화장품·인물"
+        },
+        {
+          "code": "STUDIOPORTRAIT",
+          "label": "스튜디오 인물",
+          "use": "프로필"
+        },
+        {
+          "code": "CANDID",
+          "label": "자연스러운 스냅",
+          "use": "일상"
+        }
+      ]
+    },
+    {
+      "id": "architecture",
+      "label": "건축·인테리어",
+      "commands": [
+        {
+          "code": "INTERIORMAKEOVER",
+          "label": "인테리어 변경",
+          "use": "리모델링"
+        },
+        {
+          "code": "FLOORPLAN",
+          "label": "평면도",
+          "use": "설계"
+        },
+        {
+          "code": "SITEPLAN",
+          "label": "배치도",
+          "use": "건축"
+        },
+        {
+          "code": "ELEVATION",
+          "label": "입면도",
+          "use": "설계"
+        },
+        {
+          "code": "SECTION",
+          "label": "건축 단면도",
+          "use": "설계"
+        },
+        {
+          "code": "ISOMETRIC",
+          "label": "아이소메트릭",
+          "use": "공간 설명"
+        },
+        {
+          "code": "AXONOMETRIC",
+          "label": "축측 투상도",
+          "use": "건축 시각화"
+        },
+        {
+          "code": "EXTERIOR",
+          "label": "건축 외관",
+          "use": "렌더링"
+        },
+        {
+          "code": "INTERIOR",
+          "label": "실내 렌더링",
+          "use": "인테리어"
+        },
+        {
+          "code": "ARCHVIZ",
+          "label": "건축 시각화",
+          "use": "프레젠테이션"
+        },
+        {
+          "code": "ROOMMAKEOVER",
+          "label": "방 리디자인",
+          "use": "인테리어"
+        }
+      ]
+    },
+    {
+      "id": "car-food",
+      "label": "자동차·음식",
+      "commands": [
+        {
+          "code": "CARSHOT",
+          "label": "자동차 전문 촬영",
+          "use": "자동차 광고"
+        },
+        {
+          "code": "DRIVINGSHOT",
+          "label": "주행 장면",
+          "use": "동적 장면"
+        },
+        {
+          "code": "ROLLINGSHOT",
+          "label": "롤링샷",
+          "use": "속도감"
+        },
+        {
+          "code": "REARVIEW",
+          "label": "차량 후면",
+          "use": "제품 자료"
+        },
+        {
+          "code": "INTERIORVIEW",
+          "label": "차량 실내",
+          "use": "인테리어"
+        },
+        {
+          "code": "FOODPHOTO",
+          "label": "음식 사진",
+          "use": "메뉴·광고"
+        },
+        {
+          "code": "FOODSTYLING",
+          "label": "푸드 스타일링",
+          "use": "메뉴·캠페인"
+        },
+        {
+          "code": "STEAM",
+          "label": "증기 표현",
+          "use": "따뜻한 음식"
+        },
+        {
+          "code": "MENU",
+          "label": "메뉴판 제품컷",
+          "use": "식당"
+        }
+      ]
+    },
+    {
+      "id": "composition",
+      "label": "이미지 구성·여러 뷰",
+      "commands": [
+        {
+          "code": "BEFOREAFTER",
+          "label": "전후 비교",
+          "use": "리모델링·보정"
+        },
+        {
+          "code": "CONTACTSHEET",
+          "label": "콘택트시트",
+          "use": "시안 비교"
+        },
+        {
+          "code": "GRID4",
+          "label": "2×2 그리드",
+          "use": "4개 시안"
+        },
+        {
+          "code": "GRID9",
+          "label": "3×3 그리드",
+          "use": "9개 시안"
+        },
+        {
+          "code": "DIPTYCH",
+          "label": "2분할 구성",
+          "use": "비교"
+        },
+        {
+          "code": "TRIPTYCH",
+          "label": "3분할 구성",
+          "use": "연작"
+        },
+        {
+          "code": "PANORAMA",
+          "label": "파노라마",
+          "use": "풍경·공간"
+        },
+        {
+          "code": "STORYBOARD",
+          "label": "스토리보드",
+          "use": "영상 기획"
+        },
+        {
+          "code": "SEQUENCE",
+          "label": "단계별 이미지",
+          "use": "프로세스"
+        },
+        {
+          "code": "TIMELAPSE",
+          "label": "시간 변화",
+          "use": "시간 흐름"
+        },
+        {
+          "code": "PROGRESSION",
+          "label": "진행 과정",
+          "use": "전후·단계"
+        },
+        {
+          "code": "TURNAROUND",
+          "label": "다각도 표현",
+          "use": "캐릭터·제품"
+        }
+      ]
+    },
+    {
+      "id": "ratio",
+      "label": "SNS·화면 비율",
+      "commands": [
+        {
+          "code": "1X1",
+          "label": "1:1",
+          "use": "Instagram 피드"
+        },
+        {
+          "code": "4X5",
+          "label": "4:5",
+          "use": "Instagram 세로"
+        },
+        {
+          "code": "3X4",
+          "label": "3:4",
+          "use": "일반 세로"
+        },
+        {
+          "code": "9X16",
+          "label": "9:16",
+          "use": "릴스·쇼츠"
+        },
+        {
+          "code": "16X9",
+          "label": "16:9",
+          "use": "유튜브·블로그"
+        },
+        {
+          "code": "21X9",
+          "label": "21:9",
+          "use": "시네마틱"
+        },
+        {
+          "code": "4X3",
+          "label": "4:3",
+          "use": "일반 사진"
+        },
+        {
+          "code": "3X2",
+          "label": "3:2",
+          "use": "DSLR"
+        }
+      ]
+    },
+    {
+      "id": "illustration",
+      "label": "일러스트·렌더링 스타일",
+      "commands": [
+        {
+          "code": "3D",
+          "label": "3D 렌더링",
+          "use": "제품·캐릭터"
+        },
+        {
+          "code": "CGI",
+          "label": "CGI",
+          "use": "광고·제품"
+        },
+        {
+          "code": "ILLUSTRATION",
+          "label": "일러스트",
+          "use": "범용"
+        },
+        {
+          "code": "ANIME",
+          "label": "애니메이션",
+          "use": "캐릭터"
+        },
+        {
+          "code": "WEBTOON",
+          "label": "웹툰",
+          "use": "캐릭터·장면"
+        },
+        {
+          "code": "PIXELART",
+          "label": "픽셀아트",
+          "use": "게임"
+        },
+        {
+          "code": "WATERCOLOR",
+          "label": "수채화",
+          "use": "감성 일러스트"
+        },
+        {
+          "code": "OILPAINTING",
+          "label": "유화",
+          "use": "아트"
+        },
+        {
+          "code": "SKETCH",
+          "label": "스케치",
+          "use": "아이디어"
+        },
+        {
+          "code": "INK",
+          "label": "잉크 드로잉",
+          "use": "일러스트"
+        },
+        {
+          "code": "COMIC",
+          "label": "코믹",
+          "use": "만화"
+        },
+        {
+          "code": "VECTOR",
+          "label": "벡터",
+          "use": "아이콘·그래픽"
+        },
+        {
+          "code": "LOWPOLY",
+          "label": "로우폴리",
+          "use": "게임·스타일"
+        },
+        {
+          "code": "CLAY",
+          "label": "클레이 렌더링",
+          "use": "캐릭터·제품"
+        },
+        {
+          "code": "PAPERCRAFT",
+          "label": "종이공예",
+          "use": "스타일 이미지"
+        }
+      ]
+    },
+    {
+      "id": "lighting",
+      "label": "조명",
+      "commands": [
+        {
+          "code": "STUDIOLIGHT",
+          "label": "스튜디오 조명",
+          "use": "제품·인물"
+        },
+        {
+          "code": "SOFTLIGHT",
+          "label": "부드러운 확산광",
+          "use": "인물·제품"
+        },
+        {
+          "code": "HARDLIGHT",
+          "label": "강한 직사광",
+          "use": "드라마틱"
+        },
+        {
+          "code": "BACKLIGHT",
+          "label": "역광",
+          "use": "실루엣"
+        },
+        {
+          "code": "RIMLIGHT",
+          "label": "가장자리 조명",
+          "use": "인물·제품"
+        },
+        {
+          "code": "SIDELIGHT",
+          "label": "측면 조명",
+          "use": "입체감"
+        },
+        {
+          "code": "BLUEHOUR",
+          "label": "블루아워",
+          "use": "도시·풍경"
+        },
+        {
+          "code": "DRAMATICLIGHT",
+          "label": "극적 명암",
+          "use": "영화·광고"
+        },
+        {
+          "code": "NATURALLIGHT",
+          "label": "자연광",
+          "use": "일상·인물"
+        },
+        {
+          "code": "VOLUMETRICLIGHT",
+          "label": "볼류메트릭 조명",
+          "use": "영화적 장면"
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "label": "분위기·환경",
+      "commands": [
+        {
+          "code": "RAIN",
+          "label": "비",
+          "use": "도시·감성"
+        },
+        {
+          "code": "SNOW",
+          "label": "눈",
+          "use": "겨울"
+        },
+        {
+          "code": "SUNSET",
+          "label": "일몰",
+          "use": "야외"
+        },
+        {
+          "code": "SUNRISE",
+          "label": "일출",
+          "use": "야외"
+        },
+        {
+          "code": "NIGHT",
+          "label": "야간",
+          "use": "도시·제품"
+        },
+        {
+          "code": "DAYLIGHT",
+          "label": "낮 자연광",
+          "use": "자연광"
+        },
+        {
+          "code": "STORM",
+          "label": "폭풍",
+          "use": "드라마틱"
+        },
+        {
+          "code": "CYBERPUNK",
+          "label": "사이버펑크",
+          "use": "SF"
+        }
+      ]
+    }
+  ]
+}

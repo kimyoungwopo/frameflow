@@ -1,0 +1,48 @@
+{
+  "id": "frameflow-ai-harness-v1",
+  "commandNode": {
+    "allowMultipleCommands": true,
+    "preserveOrder": true,
+    "oneNodePerCombination": true,
+    "unknownCode": "reject",
+    "deduplicateCodes": true,
+    "commandsOnly": true
+  },
+  "promptNode": {
+    "sceneDetailsOnly": true,
+    "preserveConstraints": true,
+    "doNotDuplicateCommandCodes": true
+  },
+  "execution": {
+    "combinedCommandsUseOneImageOperation": true,
+    "doNotAddOperationForCommandCount": true,
+    "neverClaimUnverifiedSuccess": true
+  },
+  "motion": {
+    "requiredFor": ["gif", "apng", "sprite", "animation", "frame", "motion", "스프라이트", "애니메이션", "프레임", "모션"],
+    "defaultFrames": 8,
+    "defaultFps": 6,
+    "minFrames": 4,
+    "maxFrames": 12,
+    "atlasLayout": "horizontal_equal_cells",
+    "oneMotionPerRequest": true,
+    "externalConversion": "reject",
+    "logicalPixelSize": [32, 64],
+    "paletteColors": "6-8",
+    "style": "chunky_hand_authored_game_sprite",
+    "finalSizeReadability": ["head", "eyes", "paws", "tail"]
+  },
+  "graph": {
+    "acyclic": true,
+    "maxNodes": 64,
+    "maxEdges": 128,
+    "previewTerminal": true
+  },
+  "safety": {
+    "neverInventCommands": true,
+    "neverExposeSecrets": true,
+    "neverInventImages": true,
+    "preserveOriginalGraphOnFailure": true,
+    "noAutomaticProviderRetry": true
+  }
+}
