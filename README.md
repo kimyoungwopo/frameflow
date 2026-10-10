@@ -1,28 +1,58 @@
-# Frameflow
+<div align="center">
+  <img src="https://raw.githubusercontent.com/kimyoungwopo/frameflow/main/web/public/brand/frameflow-icon-512.png" width="112" alt="Frameflow icon" />
+  <h1>Frameflow</h1>
+  <p><strong>A local, node-based image workflow studio with deterministic motion atlas processing.</strong></p>
+  <p>
+    <a href="https://github.com/kimyoungwopo/frameflow/actions/workflows/public-release-check.yml"><img src="https://github.com/kimyoungwopo/frameflow/actions/workflows/public-release-check.yml/badge.svg" alt="Public release checks" /></a>
+    <a href="https://github.com/kimyoungwopo/frameflow/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-blue.svg" alt="Apache 2.0 license" /></a>
+    <a href="https://github.com/kimyoungwopo/frameflow"><img src="https://img.shields.io/github/stars/kimyoungwopo/frameflow?style=flat" alt="GitHub stars" /></a>
+  </p>
+  <p>
+    <a href="#english">English</a> ·
+    <a href="#한국어">한국어</a> ·
+    <a href="#日本語">日本語</a> ·
+    <a href="#简体中文">简体中文</a>
+  </p>
+</div>
 
-Frameflow는 이미지 생성·편집 작업을 노드 그래프로 구성하고, 결과를 프로젝트 단위로 관리하는 로컬 웹 스튜디오입니다.
+---
 
-## 공개 범위
+<a id="english"></a>
 
-공개 저장소에는 다음이 포함됩니다.
+## English
 
-- 노드 그래프 실행과 검증
-- 이미지 provider adapter 계약
-- mock/fixture 기반 테스트
-- motion atlas 분할·검증
-- GIF/APNG 인코딩
-- 로컬 웹 스튜디오와 Local Bridge
+Frameflow is a local web studio for composing image generation and editing workflows as a node graph. It keeps the workflow contract, provider boundary, validation, and output processing explicit—so provider results can be checked and transformed deterministically instead of being silently patched.
 
-hosted 서비스, 운영 배포 설정, 개인 계정 인증 상태, 실제 provider credential, 생성 결과물과 QA 캡처는 공개 저장소에 포함하지 않습니다. 실제 provider 연결은 사용자가 공식 문서에 따라 별도로 설정하는 opt-in 경로입니다.
+### ✨ What it does
 
-Frameflow 이름·로고·hosted 서비스 식별자는 코드 라이선스와 별도 권리입니다. 자세한 내용은 [TRADEMARKS.md](TRADEMARKS.md)를 확인하세요.
+- **Node-based workflows** — compose prompts, inputs, edits, blends, repeats, previews, and motion operations.
+- **Provider adapters** — connect an official provider, a compatible local service, or a mock provider through a clear boundary.
+- **Deterministic motion pipeline** — validate a horizontal equal-cell atlas, split exact cells, and encode GIF/APNG output.
+- **Offline-friendly QA** — run planner, graph, alpha, atlas, and encoder tests without an account or paid API call.
+- **Local-first storage** — keep project metadata and image records in the browser; run the Bridge on loopback by default.
+- **Explicit failure handling** — reject malformed graphs and invalid atlases instead of hiding errors with crop, patch, or silent retry.
 
-## 요구 사항
+### 🧭 Architecture
 
-- Node.js 22 이상
-- 실제 provider 없이도 테스트 가능한 로컬 환경
+```text
+Natural language / manual graph
+              │
+              ▼
+      Planner + contract validation
+              │
+              ▼
+       Local Bridge / provider adapter
+              │
+              ▼
+   Image result → atlas validation → exact split
+              │
+              ▼
+       GIF / APNG encoder → project results
+```
 
-## 설치와 실행
+### 🚀 Quick start
+
+Requirements: **Node.js 22+**
 
 ```bash
 npm install
@@ -30,38 +60,53 @@ npm run setup
 npm run dev
 ```
 
-기본 주소: <http://127.0.0.1:4310>
+Open <http://127.0.0.1:4310>.
 
-프로덕션 빌드:
+Production build:
 
 ```bash
 npm run build
 npm start
 ```
 
-포트 변경:
+Custom local ports:
 
 ```bash
 WEB_PORT=4320 BRIDGE_PORT=4329 npm start
 ```
 
-## Local Bridge
+### 🔌 Provider boundary
 
-웹 앱과 Local Bridge는 기본적으로 loopback에만 바인딩됩니다. 실제 provider를 사용하지 않는 테스트는 모의 응답과 임시 HOME을 사용합니다.
+The default test path uses mock responses and fixtures. Real providers are opt-in and must be configured locally from their official documentation.
 
-공개 웹 앱에 연결할 때는 사용자가 신뢰하는 HTTPS origin만 명시적으로 지정하세요.
+```bash
+cp .env.example .env.local
+# Fill only the provider settings you choose to use.
+# Never commit .env.local or real credentials.
+```
+
+For a trusted HTTPS website connecting to a local Bridge:
 
 ```bash
 npm run bridge -- --origin https://YOUR-SITE.example
 ```
 
-연결 키와 provider credential은 저장소·이슈·로그·브라우저 URL에 기록하지 마세요. 공식 provider의 OAuth/API 설정은 환경변수로만 주입하며, 기본 실행이나 테스트에서 계정·유료 API 호출을 요구하지 않습니다. 상세 계약은 [bridge/README.md](bridge/README.md)를 확인하세요.
+Credentials, tokens, cookies, device authorization state, and session files must stay outside the repository. See [bridge/README.md](bridge/README.md) and [SECURITY.md](SECURITY.md).
 
-## Motion atlas 정책
+### 🎞️ Motion atlas contract
 
-Frameflow는 provider가 반환한 atlas를 임의로 crop·patch·수동 보정하지 않습니다. 가로 방향의 동일 셀 atlas가 프레임 수와 정확히 나뉘지 않으면 실패 처리합니다. fixture 테스트는 provider 비용 없이 분할·경계·투명도·GIF/APNG 인코딩을 검증합니다.
+Frameflow does not crop or repair a provider result to make it pass. A motion atlas must satisfy the contract before encoding:
 
-## 검증 명령
+- horizontal, equal-width cells
+- exact frame count, typically 8 frames at 6 fps
+- transparent or explicitly requested background
+- no adjacent-cell bleed or ghost trail
+- no text, watermark, border, or checkerboard baked into the asset
+- dimension mismatch means a clear failure
+
+### ✅ Verification
+
+All of these commands run without a provider account or API key:
 
 ```bash
 npm test
@@ -71,24 +116,155 @@ npm run public:check
 npm run build
 ```
 
-`npm test`와 `npm run public:check`는 계정이나 API 키 없이 실행되어야 합니다. 실제 provider smoke/E2E는 별도 opt-in이며 공개 릴리스의 기본 검증으로 간주하지 않습니다.
+The repository currently covers planner contracts, graph validation, provider boundaries, session isolation, alpha-preserving image handling, motion atlas processing, and result persistence.
 
-## 개인정보·비밀정보 정책
+### 📦 Repository map
 
-공개 전에 다음을 저장소에 넣지 않습니다.
+```text
+web/       Next.js studio and browser-side encoders
+bridge/    Local Bridge, provider adapters, planner validation
+shared/    Command catalogue and AI harness definitions
+tests/     Offline regression and integration tests
+qa/        Sanitized QA fixtures and scenario records
+docs/      Architecture and decision notes
+```
 
-- API key, access/refresh token, OAuth secret, password, connection string
-- session/cookie/browser profile/device authorization state
-- 개인 이메일·계정 식별자·사용자 홈 경로
-- 실제 tunnel/deployment URL과 개인 QA 캡처
-- source map을 포함한 로컬 빌드 산출물
+### 🔐 Public-release boundary
 
-`.env.example`와 fixture에는 비기능 placeholder만 사용합니다. 공개 전에는 [PUBLIC_RELEASE_CHECKLIST.md](PUBLIC_RELEASE_CHECKLIST.md)의 clean-room staging 검사를 수행하세요.
+This repository intentionally excludes:
 
-## 라이선스
+- API keys, OAuth secrets, access/refresh tokens, passwords, and connection strings
+- session, cookie, browser-profile, and device-authorization state
+- personal paths, account identifiers, private QA captures, and live tunnel URLs
+- local build output, source maps, packaged apps, and private generated assets
 
-소스 코드는 Apache License 2.0으로 배포합니다. [LICENSE](LICENSE)를 참고하세요. 제3자 dependency와 샘플 asset에는 각각의 라이선스가 적용됩니다.
+Run `npm run public:check` before publishing. The full checklist is in [PUBLIC_RELEASE_CHECKLIST.md](PUBLIC_RELEASE_CHECKLIST.md).
 
-## 보안 취약점 신고
+### 📄 License and brand
 
-공개 이슈에 credential이나 재현 가능한 민감정보를 올리지 마세요. 신고 절차는 [SECURITY.md](SECURITY.md)를 확인하세요.
+Source code: [Apache License 2.0](LICENSE).
+
+The Frameflow name, logo, hosted-service identifiers, and brand assets are separate from the code license. See [TRADEMARKS.md](TRADEMARKS.md). Contributions are welcome under [CONTRIBUTING.md](CONTRIBUTING.md).
+
+---
+
+<a id="한국어"></a>
+
+## 한국어
+
+Frameflow는 이미지 생성·편집 작업을 노드 그래프로 구성하는 로컬 웹 스튜디오야. provider 경계와 workflow 계약을 분리하고, 생성 결과를 검증한 뒤 deterministic하게 모션 atlas와 GIF/APNG로 처리해.
+
+### 주요 기능
+
+- 프롬프트, 입력, 편집, 합성, 반복, preview, motion을 노드로 구성
+- 공식 provider·로컬 서비스·mock provider를 adapter로 연결
+- 동일 셀 atlas 검증과 정확한 프레임 분할
+- 계정/API key 없이 실행 가능한 fixture 기반 테스트
+- loopback 기본 Local Bridge와 브라우저 프로젝트 저장
+- 잘못된 그래프·atlas를 crop이나 자동 재시도로 숨기지 않는 명시적 실패 처리
+
+### 실행
+
+```bash
+npm install
+npm run setup
+npm run dev
+```
+
+<http://127.0.0.1:4310>에서 열면 돼. 전체 검증은 다음 명령으로 실행해.
+
+```bash
+npm test
+npm run typecheck
+npm run agent:check
+npm run public:check
+npm run build
+```
+
+실제 provider 연결은 opt-in이며, credential·token·세션·개인 결과물은 저장소에 넣지 않아. 자세한 내용은 [공개 전 체크리스트](PUBLIC_RELEASE_CHECKLIST.md), [보안 정책](SECURITY.md), [기여 가이드](CONTRIBUTING.md)를 확인해.
+
+---
+
+<a id="日本語"></a>
+
+## 日本語
+
+Frameflowは、画像生成・編集ワークフローをノードグラフで構成するローカルWebスタジオです。providerとの境界とworkflow契約を分離し、生成結果を検証してからモーションatlasとGIF/APNGへ決定的に変換します。
+
+### 主な特徴
+
+- プロンプト、入力、編集、合成、反復、プレビュー、モーションをノードで構成
+- 公式provider、ローカルサービス、mock providerをadapter経由で接続
+- 等幅セルのatlas検証と正確なフレーム分割
+- アカウントやAPI keyなしで実行できるfixtureベースのテスト
+- loopbackを基本とするLocal Bridgeとブラウザ内プロジェクト保存
+- 不正なグラフやatlasをcrop・patch・暗黙の再試行で隠さない明示的なエラー処理
+
+### 実行
+
+```bash
+npm install
+npm run setup
+npm run dev
+```
+
+<http://127.0.0.1:4310> を開いてください。検証コマンドは次のとおりです。
+
+```bash
+npm test
+npm run typecheck
+npm run agent:check
+npm run public:check
+npm run build
+```
+
+実際のprovider接続はopt-inです。credential、token、セッション、個人の生成物はリポジトリに含めません。詳しくは [公開チェックリスト](PUBLIC_RELEASE_CHECKLIST.md) と [Security Policy](SECURITY.md) を確認してください。
+
+---
+
+<a id="简体中文"></a>
+
+## 简体中文
+
+Frameflow 是一个本地 Web 工作室，用于通过节点图组合图像生成与编辑流程。它将 provider 边界和 workflow 契约明确分开，在生成结果经过验证后，再以确定性的方式处理 motion atlas、GIF 和 APNG。
+
+### 核心能力
+
+- 使用节点组合提示词、输入、编辑、合成、重复、预览和动画操作
+- 通过 adapter 连接官方 provider、本地服务或 mock provider
+- 验证等宽横向 atlas，并精确拆分每一帧
+- 无需账号或 API key 即可运行的 fixture 测试
+- 默认仅绑定 loopback 的 Local Bridge，以及浏览器端项目存储
+- 对无效图结构和 atlas 直接报错，不用裁剪、打补丁或静默重试来掩盖问题
+
+### 运行
+
+```bash
+npm install
+npm run setup
+npm run dev
+```
+
+打开 <http://127.0.0.1:4310>。完整检查命令：
+
+```bash
+npm test
+npm run typecheck
+npm run agent:check
+npm run public:check
+npm run build
+```
+
+真实 provider 连接必须显式 opt-in。请勿将 credential、token、会话文件或个人生成结果提交到仓库。详情请查看[公开发布检查清单](PUBLIC_RELEASE_CHECKLIST.md)和[安全策略](SECURITY.md)。
+
+---
+
+## Links
+
+- [Public release checklist](PUBLIC_RELEASE_CHECKLIST.md)
+- [Security policy](SECURITY.md)
+- [Contributing guide](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [License](LICENSE)
+- [Brand and trademarks](TRADEMARKS.md)
+- [GitHub Actions](https://github.com/kimyoungwopo/frameflow/actions)
