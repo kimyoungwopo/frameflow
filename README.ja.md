@@ -13,6 +13,16 @@ Frameflowは、画像生成・編集ワークフローをノードグラフで�
 - **Local-first** — ブラウザ内プロジェクト保存とloopbackを基本とするLocal Bridge
 - **明示的なエラー処理** — 不正なgraphやatlasをcrop、patch、暗黙の再試行で隠さない
 
+## 🖼️ プレビュー
+
+![Frameflowスタジオ](docs/assets/studio-overview.png)
+
+![Motion atlas契約](docs/assets/motion-atlas-contract.png)
+
+![Synthetic motion fixture](docs/assets/motion-demo.gif)
+
+詳しくは [Demoガイド](docs/DEMO.md) を確認してください。
+
 ## 🚀 実行
 
 必要条件: **Node.js 22以上**

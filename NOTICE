@@ -1,0 +1,9 @@
+# NOTICE
+
+Frameflow source code is distributed under the Apache License 2.0. See [LICENSE](LICENSE).
+
+Third-party dependencies remain under their respective licenses. Review the dependency package metadata before redistributing a bundled build.
+
+The Frameflow name, logos, hosted-service identifiers, and brand assets are not granted under the Apache License 2.0. See [TRADEMARKS.md](TRADEMARKS.md).
+
+The files under `docs/assets/` are documentation fixtures created for this repository. They are not provider responses and do not grant rights to any third-party trademarks or source material.

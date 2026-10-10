@@ -13,6 +13,16 @@
 - **Local-first** — 브라우저 프로젝트 저장과 loopback 기본 Local Bridge
 - **명시적 실패 처리** — 잘못된 graph·atlas를 crop, patch, 자동 재시도로 숨기지 않음
 
+## 🖼️ 미리보기
+
+![Frameflow 스튜디오](docs/assets/studio-overview.png)
+
+![Motion atlas 계약](docs/assets/motion-atlas-contract.png)
+
+![Synthetic motion fixture](docs/assets/motion-demo.gif)
+
+전체 절차는 [Demo 가이드](docs/DEMO.md)를 확인해.
+
 ## 🚀 실행
 
 요구 사항: **Node.js 22 이상**

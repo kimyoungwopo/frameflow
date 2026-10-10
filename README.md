@@ -48,6 +48,16 @@ Natural language / manual graph
        GIF / APNG encoder → project results
 ```
 
+## 🖼️ Preview
+
+![Frameflow studio overview](docs/assets/studio-overview.png)
+
+![Motion atlas contract](docs/assets/motion-atlas-contract.png)
+
+![Synthetic motion fixture](docs/assets/motion-demo.gif)
+
+These are public-safe local UI and synthetic fixture assets. They do not contain account state or provider output. See the full [offline demo guide](docs/DEMO.md).
+
 ## 🚀 Quick start
 
 Requirements: **Node.js 22+**

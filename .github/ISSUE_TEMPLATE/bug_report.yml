@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a reproducible problem without sharing private data.
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include API keys, tokens, cookies, account identifiers, personal paths, or private images.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: 0.1.0 or commit hash
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: macOS/Linux/Windows, Node.js version, browser
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider mode
+      options:
+        - Mock/fixture
+        - Local adapter
+        - Official remote provider
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Use a minimal fixture or synthetic input.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true

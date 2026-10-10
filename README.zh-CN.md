@@ -13,6 +13,16 @@ Frameflow 是一个本地 Web 工作室，用于通过节点图组合图像生�
 - **Local-first** — 浏览器端项目存储，以及默认仅绑定 loopback 的 Local Bridge
 - **明确的失败处理** — 不用裁剪、打补丁或静默重试来掩盖无效 graph 和 atlas
 
+## 🖼️ 预览
+
+![Frameflow 工作室](docs/assets/studio-overview.png)
+
+![Motion atlas 契约](docs/assets/motion-atlas-contract.png)
+
+![Synthetic motion fixture](docs/assets/motion-demo.gif)
+
+完整步骤请查看 [Demo 指南](docs/DEMO.md)。
+
 ## 🚀 运行
 
 要求：**Node.js 22+**
